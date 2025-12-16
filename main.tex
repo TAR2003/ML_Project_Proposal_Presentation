@@ -66,7 +66,6 @@
 		Training AI models on graph data across multiple organizations is challenging due to security threats and privacy concerns.
 	\end{block}
 
-	\vspace{0.5cm}
 
 	\begin{columns}[T]
 		\begin{column}{0.48\textwidth}
@@ -89,8 +88,6 @@
 		\end{column}
 	\end{columns}
 
-	\vspace{0.3cm}
-
 	\begin{alertblock}{Our Goal}
 		Develop a secure and verifiable system for collaborative graph-based machine learning.
 	\end{alertblock}
@@ -101,7 +98,7 @@
 % Slide 3: Background & Related Work
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Background \& Related Work}
-
+	\small
 	\begin{columns}[T]
 		\begin{column}{0.48\textwidth}
 			\textbf{Foundation: RUNG (NeurIPS 2024)}
@@ -111,7 +108,6 @@
 				\item Strong performance guarantees
 			\end{itemize}
 
-			\vspace{0.5cm}
 
 			\textbf{Why RUNG?}
 			\begin{itemize}
@@ -130,8 +126,6 @@
 				\item \textbf{Efficiency}: Need to minimize communication overhead
 			\end{itemize}
 
-			\vspace{0.5cm}
-
 			\textbf{Existing Defense Methods}
 			\begin{itemize}
 				\item Distance-based filtering
@@ -139,38 +133,36 @@
 				\item Averaging techniques
 			\end{itemize}
 
-			\vspace{0.3cm}
 
-			\begin{alertblock}{Limitation}
-				Current methods don't work well with graph data and lack verification.
-			\end{alertblock}
 
 		\end{column}
 	\end{columns}
-
+	\begin{alertblock}{Limitation}
+		Current methods don't work well with graph data and lack verification.
+	\end{alertblock}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Slide 4: Proposed Approach (Part 1)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Proposed Approach: System Architecture}
-
+	\small
 	\begin{center}
-		\begin{tikzpicture}[scale=0.85, every node/.style={scale=0.85}]
+		\begin{tikzpicture}[scale=0.65, every node/.style={scale=0.85}]
 			% Server
 			\node[draw, rectangle, fill=lightblue!30, minimum width=2.5cm, minimum height=1cm] (server) at (0,4) {\textbf{Central Server}};
 
 			% Clients
-			\node[draw, rectangle, fill=green!20, minimum width=2cm, minimum height=0.8cm] (client1) at (-4,1) {Client 1};
-			\node[draw, rectangle, fill=green!20, minimum width=2cm, minimum height=0.8cm] (client2) at (-1.5,1) {Client 2};
+			\node[draw, rectangle, fill=green!20, minimum width=2cm, minimum height=0.8cm] (client1) at (-5.5,1) {Client 1};
+			\node[draw, rectangle, fill=green!20, minimum width=2cm, minimum height=0.8cm] (client2) at (-2.5,1) {Client 2};
 			\node[draw, rectangle, fill=red!20, minimum width=2cm, minimum height=0.8cm] (client3) at (1.5,1) {Client 3 (Byzantine)};
-			\node[draw, rectangle, fill=green!20, minimum width=2cm, minimum height=0.8cm] (client4) at (4,1) {Client n};
+			\node[draw, rectangle, fill=green!20, minimum width=2cm, minimum height=0.8cm] (client4) at (5.5,1) {Client n};
 
 			% Local graphs
-			\node[draw, circle, fill=blue!10, minimum size=0.6cm] (g1) at (-4,-0.5) {$G_1$};
-			\node[draw, circle, fill=blue!10, minimum size=0.6cm] (g2) at (-1.5,-0.5) {$G_2$};
+			\node[draw, circle, fill=blue!10, minimum size=0.6cm] (g1) at (-5.5,-0.5) {$G_1$};
+			\node[draw, circle, fill=blue!10, minimum size=0.6cm] (g2) at (-2,-0.5) {$G_2$};
 			\node[draw, circle, fill=blue!10, minimum size=0.6cm] (g3) at (1.5,-0.5) {$G_3$};
-			\node[draw, circle, fill=blue!10, minimum size=0.6cm] (g4) at (4,-0.5) {$G_n$};
+			\node[draw, circle, fill=blue!10, minimum size=0.6cm] (g4) at (5.5,-0.5) {$G_n$};
 
 			% Arrows
 			\draw[->, thick] (server) -- node[right] {\small Global Model} (client1);
@@ -180,7 +172,7 @@
 
 			\draw[->, thick, dashed] (client1) -- node[left] {\small Local Update} (server);
 			\draw[->, thick, dashed] (client2) -- (server);
-			\draw[->, thick, dashed, red] (client3) -- node[right] {\small Malicious Update} (server);
+			\draw[->, thick, red] (client3) -- node[right] {\small Malicious Update} (server);
 			\draw[->, thick, dashed] (client4) -- (server);
 
 			\draw[->, thick] (g1) -- (client1);
@@ -189,12 +181,11 @@
 			\draw[->, thick] (g4) -- (client4);
 
 			% Verification box
-			\node[draw, rectangle, fill=yellow!20, minimum width=2.5cm, minimum height=0.7cm] (verify) at (0,2.5) {\small Verification \& Detection};
+			\node[draw, rectangle, fill=yellow!20, minimum width=2.5cm, minimum height=0.7cm] (verify) at (8,2.5) {\small Verification \& Detection};
 			\draw[->, thick] (verify) -- (server);
 		\end{tikzpicture}
 	\end{center}
 
-	\vspace{0.3cm}
 
 	\begin{block}{Key Components}
 		\begin{enumerate}
