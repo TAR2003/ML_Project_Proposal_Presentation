@@ -63,18 +63,18 @@
 \begin{frame}{Problem \& Motivation}
 
 	\begin{block}{Problem Statement}
-		Graph Neural Networks (GNNs) are vulnerable to adversarial attacks and fail catastrophically when deployed in federated learning settings with Byzantine (malicious) participants.
+		Training AI models on graph data across multiple organizations is challenging due to security threats and privacy concerns.
 	\end{block}
 
 	\vspace{0.5cm}
 
 	\begin{columns}[T]
 		\begin{column}{0.48\textwidth}
-			\textbf{Challenges:}
+			\textbf{Key Challenges:}
 			\begin{itemize}
-				\item \textbf{Privacy}: Multiple parties need to collaborate without sharing sensitive graph data
-				\item \textbf{Security}: Malicious clients can poison both graph structure and model parameters
-				\item \textbf{Robustness}: Existing defenses fail under adaptive attacks
+				\item \textbf{Privacy}: Organizations can't share sensitive data
+				\item \textbf{Security}: Malicious participants can corrupt the model
+				\item \textbf{Trust}: Hard to verify if participants are honest
 			\end{itemize}
 		\end{column}
 
@@ -83,16 +83,16 @@
 			\begin{itemize}
 				\item \textcolor{darkgreen}{Healthcare}: Disease networks across hospitals
 				\item \textcolor{darkgreen}{Finance}: Fraud detection across banks
-				\item \textcolor{darkgreen}{Social Networks}: Privacy-preserving community detection
-				\item \textcolor{darkgreen}{IoT/Cybersecurity}: Distributed attack detection
+				\item \textcolor{darkgreen}{Social Networks}: Privacy-preserving analysis
+				\item \textcolor{darkgreen}{Cybersecurity}: Distributed threat detection
 			\end{itemize}
 		\end{column}
 	\end{columns}
 
 	\vspace{0.3cm}
 
-	\begin{alertblock}{Research Gap}
-		No existing work combines \textit{verifiable} Byzantine robustness with \textit{unbiased} graph signal estimation in federated GNN training.
+	\begin{alertblock}{Our Goal}
+		Develop a secure and verifiable system for collaborative graph-based machine learning.
 	\end{alertblock}
 
 \end{frame}
@@ -104,44 +104,45 @@
 
 	\begin{columns}[T]
 		\begin{column}{0.48\textwidth}
-			\textbf{Base Paper: RUNG (NeurIPS 2024)}
+			\textbf{Foundation: RUNG (NeurIPS 2024)}
 			\begin{itemize}
-				\item \textbf{Problem}: $\ell_1$-based robust GNNs suffer from estimation bias
-				\item \textbf{Solution}: Minimax Concave Penalty (MCP) for unbiased aggregation
-				\item \textbf{Key Innovation}: Quasi-Newton IRLS algorithm with convergence guarantees
+				\item Robust method for handling graph data
+				\item Reduces bias in predictions
+				\item Strong performance guarantees
 			\end{itemize}
 
-			\vspace{0.3cm}
+			\vspace{0.5cm}
 
-			\begin{block}{RUNG Aggregation}
-				\small
-				$$F^{(k+1)} = (\text{diag}(q^{(k)}) + \lambda I)^{-1}[(W^{(k)} \odot \tilde{A})F^{(k)} + \lambda F^{(0)}]$$
-				where $W_{ij}^{(k)} = \max(0, \frac{1}{y_{ij}^{(k)}} - \frac{1}{\gamma})$
-			\end{block}
+			\textbf{Why RUNG?}
+			\begin{itemize}
+				\item State-of-the-art robustness
+				\item Handles noisy connections effectively
+				\item Proven theoretical guarantees
+			\end{itemize}
 
 		\end{column}
 
 		\begin{column}{0.48\textwidth}
-			\textbf{Federated Learning Challenges}
+			\textbf{Collaborative Learning Challenges}
 			\begin{itemize}
-				\item \textbf{Byzantine Attacks}: Up to $f$ out of $n$ clients are malicious
-				\item \textbf{Data Heterogeneity}: Non-IID graph distributions
-				\item \textbf{Communication Cost}: Iterative model exchanges
+				\item \textbf{Malicious Participants}: Some clients may be dishonest
+				\item \textbf{Data Diversity}: Different data distributions across clients
+				\item \textbf{Efficiency}: Need to minimize communication overhead
+			\end{itemize}
+
+			\vspace{0.5cm}
+
+			\textbf{Existing Defense Methods}
+			\begin{itemize}
+				\item Distance-based filtering
+				\item Statistical aggregation
+				\item Averaging techniques
 			\end{itemize}
 
 			\vspace{0.3cm}
 
-			\textbf{Byzantine-Robust FL Methods}
-			\begin{itemize}
-				\item \textit{Krum}: Distance-based filtering
-				\item \textit{Median/Trimmed Mean}: Coordinate-wise aggregation
-				\item \textit{BRIDGE}: Bucketing with averaging
-			\end{itemize}
-
-			\vspace{0.2cm}
-
-			\begin{alertblock}{Gap}
-				\small Existing FL methods don't handle \textbf{graph-structured} data with \textbf{verifiable} robustness guarantees.
+			\begin{alertblock}{Limitation}
+				Current methods don't work well with graph data and lack verification.
 			\end{alertblock}
 
 		\end{column}
@@ -209,52 +210,56 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Slide 5: Proposed Approach (Part 2)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Proposed Approach: Technical Innovations}
+\begin{frame}{Proposed Approach: Key Innovations}
 
 	\begin{columns}[T]
 		\begin{column}{0.48\textwidth}
 
-			\textbf{1. Verifiable Aggregation Protocol}
+			\textbf{1. Verifiable Training}
 			\begin{itemize}
-				\item \textbf{Commitment Scheme}: Client commits to local edge weights $W_i^{(k)}$
-				\item \textbf{Zero-Knowledge Proof}: Proves $W_i^{(k)}$ computed correctly without revealing graph structure
-				\item \textbf{Lightweight Verification}: Server verifies proofs in $O(1)$ per client
+				\item Each client provides cryptographic proof of honest computation
+				\item Server can verify correctness without accessing private data
+				\item Fast and efficient verification process
 			\end{itemize}
 
-			\vspace{0.3cm}
+			\vspace{0.5cm}
 
-			\begin{block}{Local Update with Proof}
-				\small
-				$$\theta_i^{(t+1)} = \theta_i^{(t)} - \eta \nabla \mathcal{L}(F_i^{RUNG}, y_i; \theta_i^{(t)})$$
-				$$\pi_i = \text{ZKP}(W_i^{(k)} \text{ satisfies MCP})$$
+			\begin{block}{Benefits}
+				\begin{itemize}
+					\item Ensures data privacy
+					\item Detects dishonest behavior
+					\item Low computational overhead
+				\end{itemize}
 			\end{block}
 
 		\end{column}
 
 		\begin{column}{0.48\textwidth}
 
-			\textbf{2. Byzantine Detection Mechanism}
+			\textbf{2. Malicious Client Detection}
 			\begin{itemize}
-				\item \textbf{Distance-Based Filtering}: Compute pairwise distances between client updates
-				\item \textbf{Statistical Outlier Test}: Detect updates with abnormal magnitudes or directions
-				\item \textbf{Adaptive Weighting}: $\alpha_i \propto \exp(-\text{dist}(\theta_i, \text{median}))$
+				\item Compare updates from different clients
+				\item Identify suspicious or outlier behavior
+				\item Automatically down-weight malicious contributions
 			\end{itemize}
 
-			\vspace{0.3cm}
+			\vspace{0.5cm}
 
-			\begin{block}{Global Aggregation}
-				\small
-				$$\theta^{(t+1)} = \frac{\sum_{i=1}^{n} \alpha_i \cdot \theta_i^{(t+1)}}{\sum_{i=1}^{n} \alpha_i}$$
-				where $\alpha_i = 0$ if client $i$ fails verification
+			\begin{block}{Aggregation Strategy}
+				\begin{itemize}
+					\item Trusted clients get higher weight
+					\item Suspicious clients are excluded
+					\item Adaptive to attack patterns
+				\end{itemize}
 			\end{block}
 
 		\end{column}
 	\end{columns}
 
-	\vspace{0.3cm}
+	\vspace{0.5cm}
 
-	\begin{alertblock}{Theoretical Guarantees}
-		\textbf{Theorem:} Under $f < n/3$ Byzantine clients, our protocol converges to a neighborhood of the optimal solution with probability $\geq 1-\delta$.
+	\begin{alertblock}{Guarantee}
+		Our system remains accurate even when up to 30\% of participants are malicious.
 	\end{alertblock}
 
 \end{frame}
@@ -267,61 +272,51 @@
 	\begin{columns}[T]
 		\begin{column}{0.48\textwidth}
 
-			\textbf{Datasets}
-			\begin{table}[h]
-				\centering
-				\small
-				\begin{tabular}{lcc}
-					\toprule
-					\textbf{Dataset} & \textbf{Nodes} & \textbf{Edges} \\
-					\midrule
-					Cora             & 2,708          & 5,429          \\
-					CiteSeer         & 3,327          & 4,732          \\
-					PubMed           & 19,717         & 44,338         \\
-					ogbn-arxiv       & 169,343        & 1,166,243      \\
-					\bottomrule
-				\end{tabular}
-			\end{table}
-
-			\vspace{0.2cm}
-
-			\textbf{Federated Setup}
+			\textbf{Benchmark Datasets}
 			\begin{itemize}
-				\item \textbf{Clients}: $n = \{10, 20, 50\}$
-				\item \textbf{Byzantine Ratio}: $f/n = \{0\%, 10\%, 20\%, 40\%\}$
-				\item \textbf{Data Split}: Dirichlet distribution ($\alpha=0.5$) for non-IID
+				\item Cora - Small academic citation network
+				\item CiteSeer - Medium citation network
+				\item PubMed - Large biomedical network
+				\item ogbn-arxiv - Very large academic network
+			\end{itemize}
+
+			\vspace{0.5cm}
+
+			\textbf{Testing Scenarios}
+			\begin{itemize}
+				\item Vary number of clients (10 to 50)
+				\item Test with different malicious ratios (0\% to 40\%)
+				\item Simulate realistic data distributions
 			\end{itemize}
 
 		\end{column}
 
 		\begin{column}{0.48\textwidth}
 
-			\textbf{Baselines}
-			\begin{enumerate}
-				\item \textbf{FedAvg}: Standard federated averaging
-				\item \textbf{FedProx}: Proximal regularization
-				\item \textbf{Krum}: Distance-based Byzantine-robust FL
-				\item \textbf{Median/TrimmedMean}: Coordinate-wise aggregation
-				\item \textbf{RUNG (centralized)}: Upper bound performance
-			\end{enumerate}
-
-			\vspace{0.3cm}
-
-			\textbf{Evaluation Metrics}
+			\textbf{Comparison Methods}
 			\begin{itemize}
-				\item \textbf{Accuracy}: Node classification accuracy vs Byzantine ratio
-				\item \textbf{Attack Detection Rate}: Precision/Recall of identifying malicious clients
-				\item \textbf{Communication Cost}: Total bytes transmitted per round
-				\item \textbf{Convergence Speed}: Rounds to reach target accuracy
+				\item Standard federated learning
+				\item Existing robust methods
+				\item Centralized training (ideal case)
+			\end{itemize}
+
+			\vspace{0.5cm}
+
+			\textbf{What We'll Measure}
+			\begin{itemize}
+				\item Prediction accuracy under attacks
+				\item Ability to detect malicious clients
+				\item Communication efficiency
+				\item Training speed and convergence
 			\end{itemize}
 
 		\end{column}
 	\end{columns}
 
-	\vspace{0.3cm}
+	\vspace{0.5cm}
 
-	\begin{block}{Ablation Studies}
-		Impact of: (1) Verification overhead, (2) Detection threshold, (3) MCP parameter $\gamma$, (4) Number of RUNG layers
+	\begin{block}{Additional Analysis}
+		We will study the impact of verification overhead and detection sensitivity.
 	\end{block}
 
 \end{frame}
@@ -330,73 +325,33 @@
 % Slide 7: Timeline & Expected Contributions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Timeline \& Expected Contributions}
-    \small
-	\begin{columns}[T]
-		\begin{column}{0.55\textwidth}
 
-			\textbf{Project Timeline (12 Weeks)}
 
-			\vspace{0.2cm}
 
-			\begin{table}[h]
-				\centering
-				\small
-				\begin{tabular}{cl}
-					\toprule
-					\textbf{Week} & \textbf{Milestone}                        \\
-					\midrule
-					1-2           & Literature review \& problem formulation  \\
-					3-4           & Design verification protocol \& detection \\
-					5-6           & Implement Fed-RUNG framework              \\
-					7-8           & Implement baselines \& datasets           \\
-					9-10          & Run experiments \& collect results        \\
-					11            & Analyze results \& ablation studies       \\
-					12            & Paper writing \& final presentation       \\
-					\bottomrule
-				\end{tabular}
-			\end{table}
 
-			\vspace{0.3cm}
+	\textbf{Expected Outcomes}
 
-			\textbf{Team Responsibilities}
-			\begin{itemize}
-				\item \textbf{Member 1}: Verification protocol, theoretical analysis
-				\item \textbf{Member 2}: Implementation, experiments, paper writing
-			\end{itemize}
+	\vspace{0.3cm}
 
-		\end{column}
+	\begin{enumerate}
+		\item A novel secure training system
+		\item Strong performance guarantees
+		\item Comprehensive experimental validation
+		\item Open-source code release
+	\end{enumerate}
 
-		\begin{column}{0.42\textwidth}
+	\vspace{0.5cm}
 
-			\textbf{Expected Contributions}
+	\begin{block}{Publication Target}
+		NeurIPS 2026
+	\end{block}
 
-			\vspace{0.2cm}
+	\vspace{0.3cm}
 
-			\begin{enumerate}
-				\item \textbf{Novel Algorithm}: First verifiable Byzantine-robust federated GNN
-				\item \textbf{Theoretical Analysis}: Convergence guarantees under Byzantine attacks
-				\item \textbf{Empirical Validation}: Comprehensive experiments on multiple datasets
-				\item \textbf{Open-Source}: Release code for reproducibility
-			\end{enumerate}
+	\begin{alertblock}{Impact}
+		Enables secure collaboration for sensitive graph data across organizations.
+	\end{alertblock}
 
-			\vspace{0.3cm}
-
-			\begin{block}{Target Venue}
-				\textbf{NeurIPS 2026} or \textbf{ICML 2026}
-				\begin{itemize}
-					\item Top-tier ML conferences
-					\item Strong fit: robustness + federated learning + graph neural networks
-				\end{itemize}
-			\end{block}
-
-			\vspace{0.2cm}
-
-			\begin{alertblock}{Impact}
-				Enables \textbf{privacy-preserving} and \textbf{secure} collaborative GNN training for real-world applications.
-			\end{alertblock}
-
-		\end{column}
-	\end{columns}
 
 \end{frame}
 

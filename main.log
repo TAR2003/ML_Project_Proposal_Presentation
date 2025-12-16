@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.6)  16 DEC 2025 18:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.9.6)  16 DEC 2025 18:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -783,7 +783,7 @@ Dictionary: translator-theorem-dictionary, Language: English
 [1
 
 {C:/Users/TAWKIR/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-Overfull \vbox (58.47348pt too high) detected at line 98
+Overfull \vbox (30.09433pt too high) detected at line 98
  []
 
 
@@ -791,24 +791,7 @@ Overfull \vbox (58.47348pt too high) detected at line 98
 [2
 
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 150.
- (C:\Users\TAWKIR\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 150.
- (C:\Users\TAWKIR\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 150.
- (C:\Users\TAWKIR\AppData\Local\Programs\MiKTeX\tex/latex/sansmathaccent\ot1mathkerncmss.fd
-File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
-)
-Overfull \hbox (7.28658pt too wide) detected at line 150
-\OT1/mathkerncmss/m/sl/10 F[] \OT1/cmss/m/n/10 = ([](\OT1/mathkerncmss/m/sl/10 q[]\OT1/cmss/m/n/10 ) + \OML/cmm/m/it/10 ^^U\OT1/mathkerncmss/m/sl/10 I\OT1/cmss/m/n/10 )[][(\OT1/mathkerncmss/m/sl/10 W[] \OMS/cmsy/m/n/10 ^^L []\OT1/cmss/m/n/10 )\OT1/mathkerncmss/m/sl/10 F[] \OT1/cmss/m/n/10 + \OML/cmm/m/it/10 ^^U\OT1/mathkerncmss/m/sl/10 F[]\OT1/cmss/m/n/10 ]
- []
-
-
-Overfull \vbox (58.87985pt too high) detected at line 150
+Overfull \vbox (41.29771pt too high) detected at line 151
  []
 
 
@@ -816,7 +799,19 @@ Overfull \vbox (58.87985pt too high) detected at line 150
 [3
 
 ]
-Overfull \vbox (29.40982pt too high) detected at line 207
+LaTeX Font Info:    Trying to load font information for U+msa on input line 208.
+ (C:\Users\TAWKIR\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 208.
+ (C:\Users\TAWKIR\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 208.
+ (C:\Users\TAWKIR\AppData\Local\Programs\MiKTeX\tex/latex/sansmathaccent\ot1mathkerncmss.fd
+File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
+)
+Overfull \vbox (29.40982pt too high) detected at line 208
  []
 
 
@@ -824,7 +819,7 @@ Overfull \vbox (29.40982pt too high) detected at line 207
 [4
 
 ]
-Overfull \vbox (76.27747pt too high) detected at line 260
+Overfull \vbox (30.92229pt too high) detected at line 265
  []
 
 
@@ -832,7 +827,7 @@ Overfull \vbox (76.27747pt too high) detected at line 260
 [5
 
 ]
-Overfull \vbox (153.1448pt too high) detected at line 327
+Overfull \vbox (34.22148pt too high) detected at line 322
  []
 
 
@@ -840,10 +835,6 @@ Overfull \vbox (153.1448pt too high) detected at line 327
 [6
 
 ]
-Overfull \vbox (119.53352pt too high) detected at line 401
- []
-
-
 
 [7
 
@@ -866,17 +857,17 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 25478 strings out of 468133
- 512921 string characters out of 5430229
- 892734 words of memory out of 5000000
- 53566 multiletter control sequences out of 15000+600000
- 638620 words of font info for 82 fonts, out of 8000000 for 9000
+ 25441 strings out of 468133
+ 512012 string characters out of 5430229
+ 889509 words of memory out of 5000000
+ 53532 multiletter control sequences out of 15000+600000
+ 634481 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,15n,123p,462b,917s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/TAWKIR/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/TAWKIR/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/TAWKIR/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/TAWKIR/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/TAWKIR/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/TAWKIR/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/TAWKIR/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/TAWKIR/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Users/TAWKIR/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Users/TAWKIR/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/TAWKIR/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on main.pdf (7 pages, 197453 bytes).
+ 128i,15n,123p,462b,876s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/TAWKIR/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/TAWKIR/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/TAWKIR/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/TAWKIR/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/TAWKIR/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Users/TAWKIR/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi8.pfb>
+Output written on main.pdf (7 pages, 136751 bytes).
 PDF statistics:
- 278 PDF objects out of 1000 (max. 8388607)
+ 238 PDF objects out of 1000 (max. 8388607)
  15 named destinations out of 1000 (max. 500000)
- 493 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 457 words of extra memory for PDF output out of 10000 (max. 10000000)
 
