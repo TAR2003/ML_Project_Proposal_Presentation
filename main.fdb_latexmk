@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1765891199.07558 "c:/Users/TAWKIR/Documents/GitHub/ML_Project_Proposal_Presentation/main.tex" "main.pdf" "main" 1765891200.86697 0
+["pdflatex"] 1765893195.255 "c:/Users/TAWKIR/Documents/GitHub/ML_Project_Proposal_Presentation/main.tex" "main.pdf" "main" 1765893197.00247 0
   "C:/Users/TAWKIR/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1765474825 229457 49ca68e6665cc8defdcf9a7c42fbab78 ""
   "C:/Users/TAWKIR/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1757160032 13257826 88ac9faf8003347f75b71f2822e63a59 ""
   "C:/Users/TAWKIR/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -201,11 +201,11 @@
   "C:/Users/TAWKIR/AppData/Local/Programs/MiKTeX/tex/latex/translator/translator.sty" 1622471510 8765 56d370785f0143111ff9898b5adfe08e ""
   "C:/Users/TAWKIR/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/TAWKIR/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "c:/Users/TAWKIR/Documents/GitHub/ML_Project_Proposal_Presentation/main.tex" 1765891198 12042 b869d9e63e2481b9934543c721aff613 ""
-  "main.aux" 1765891200 1339 789092fe153d4a422b2b5bb40c61f4be "pdflatex"
-  "main.nav" 1765891200 835 b5c49ba28d3d2049d1773682fb2767a8 "pdflatex"
-  "main.out" 1765891200 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.tex" 1765891198 12042 b869d9e63e2481b9934543c721aff613 ""
+  "c:/Users/TAWKIR/Documents/GitHub/ML_Project_Proposal_Presentation/main.tex" 1765893194 12030 3e0fc9045de8bebe30486b4c45d41c81 ""
+  "main.aux" 1765893196 1339 789092fe153d4a422b2b5bb40c61f4be "pdflatex"
+  "main.nav" 1765893196 835 b5c49ba28d3d2049d1773682fb2767a8 "pdflatex"
+  "main.out" 1765893196 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.tex" 1765893194 12030 3e0fc9045de8bebe30486b4c45d41c81 ""
   (generated)
   "main.aux"
   "main.log"
